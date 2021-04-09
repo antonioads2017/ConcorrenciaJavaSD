@@ -8,11 +8,12 @@ import ifpb.edu.br.produtores.Produtor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Main {
+public class BufferSimplesTest {
     public static void main( String[] args ) {
         ExecutorService teste = Executors.newFixedThreadPool( 2 );
         Buffer localizacaoCompartilhada= new BufferExemplo();
         try {
+            System.out.println("Buffer Simples \n\n");
             teste.execute( new Produtor( localizacaoCompartilhada) );
             teste.execute( new Consumidor( localizacaoCompartilhada) );
         } catch ( Exception exception ) {
@@ -20,4 +21,5 @@ public class Main {
         }
         teste.shutdown();
     }
+
 }
