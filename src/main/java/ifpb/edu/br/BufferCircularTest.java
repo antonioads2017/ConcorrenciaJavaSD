@@ -8,12 +8,12 @@ import ifpb.edu.br.produtores.Produtor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class BufferCSincronizacaoTest {
+public class BufferCircularTest {
     public static void main( String[] args ) {
-        ExecutorService teste2 = Executors.newFixedThreadPool( 2 );
+        ExecutorService teste2 = Executors.newFixedThreadPool( 3 );
         Buffer localizacaoCompartilhadaCSicronizacao = new BufferExemploCircular();
         try {
-            System.out.println("Buffer com Sicronização\n\n");
+            System.out.println("Buffer Circular\n\n");
             teste2.execute(new Produtor(localizacaoCompartilhadaCSicronizacao));
             teste2.execute(new Consumidor(localizacaoCompartilhadaCSicronizacao));
         } catch ( Exception exception ) {
